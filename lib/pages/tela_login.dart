@@ -140,8 +140,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       // Botão de entrar
                       ElevatedButton(
                         onPressed: () {
-                          // Aqui você pode adicionar navegação para a próxima página
-                          
+                          // Aqui você pode adicionar naegação para a próxima página
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MateriasScreen()));
                         },
                         child: Text('Entrar'),
                         style: ElevatedButton.styleFrom(
