@@ -40,14 +40,11 @@ class _BiometricAuthState extends State<BiometricAuth> {
 
   @override
   Widget build(BuildContext context) {
-    return _isBiometricSupported
-        ? Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: ElevatedButton(
-              onPressed: _authenticateBiometrics,
-              child: Text('Login via Biometria'),
-            ),
-          )
-        : Container();
+    if (_isBiometricSupported) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _authenticateBiometrics();
+      });
+    }
+    return Container(); // Retorna um widget vazio enquanto a autenticação ocorre
   }
 }
